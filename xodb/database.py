@@ -396,7 +396,7 @@ class Database(object):
     def _get_value_count(self):
         if self.inmem:
             return self._value_count
-        return int(self.backend.get_metadata(self.value_count_name))
+        return int(self.backend.get_metadata(self.value_count_name) or 0)
 
     def _set_value_count(self, count):
         if self.inmem:
